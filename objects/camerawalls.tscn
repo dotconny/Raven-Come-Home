@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://c584kw034d35n"]
+
+[ext_resource type="PackedScene" uid="uid://cutwftweeyuxl" path="res://objects/hitbox.tscn" id="1_76y0a"]
+
+[node name="camerawalls" type="Node2D"]
+
+[node name="walls" type="Node" parent="."]
+
+[node name="1" parent="walls" groups=["cameras"] instance=ExtResource("1_76y0a")]
+x = -1
+width = 1
+height = 180
+color = Color(0.693068, 0.512048, 0, 0.5)
+
+[node name="2" parent="walls" groups=["cameras"] instance=ExtResource("1_76y0a")]
+y = -1
+width = 320
+height = 1
+color = Color(0.693068, 0.512048, 0, 0.5)
+
+[node name="3" parent="walls" groups=["cameras"] instance=ExtResource("1_76y0a")]
+y = 180
+width = 320
+height = 1
+color = Color(0.693068, 0.512048, 0, 0.5)
+
+[node name="4" parent="walls" groups=["cameras"] instance=ExtResource("1_76y0a")]
+x = 320
+width = 1
+height = 180
+color = Color(0.693068, 0.512048, 0, 0.5)

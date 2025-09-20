@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://4mn07msf81sf"]
+[gd_scene load_steps=2 format=3 uid="uid://4mn07msf81sf"]
+
+[ext_resource type="Script" path="res://UI/mainmenu/lvlselect.gd" id="1_atory"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -32,3 +34,5 @@ RavenComeHome(placeholder)"
 
 [node name="Button" type="Button" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
+text = "LevelSelect"
+script = ExtResource("1_atory")

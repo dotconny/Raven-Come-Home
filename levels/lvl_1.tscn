@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwvy1caik0syd"]
+
+[ext_resource type="PackedScene" uid="uid://46yyaknh310j" path="res://entities/player.tscn" id="1_lwhl7"]
+[ext_resource type="PackedScene" uid="uid://bkyuy71sjog42" path="res://objects/wall.tscn" id="2_3dri8"]
+
+[node name="Lvl1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_lwhl7")]
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("2_3dri8")]
+position = Vector2(0, 168)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("2_3dri8")]
+position = Vector2(16, 168)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("2_3dri8")]
+position = Vector2(32, 168)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("2_3dri8")]
+position = Vector2(48, 168)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("2_3dri8")]
+position = Vector2(64, 168)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("2_3dri8")]
+position = Vector2(80, 168)
+
+[node name="Wall7" parent="Walls" instance=ExtResource("2_3dri8")]
+position = Vector2(96, 168)
+
+[node name="Wall8" parent="Walls" instance=ExtResource("2_3dri8")]
+position = Vector2(112, 168)

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://46yyaknh310j"]
+
+[ext_resource type="Script" path="res://entities/player.gd" id="1_clkub"]
+[ext_resource type="PackedScene" uid="uid://cutwftweeyuxl" path="res://objects/hitbox.tscn" id="2_hnrai"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_clkub")
+max_run = 200
+run_accel = 5000
+gravity = 600
+max_fall = 200
+
+[node name="hitbox" parent="." instance=ExtResource("2_hnrai")]
+x = 0
+height = 12
+color = Color(0.589475, 2.38729e-05, 0.446741, 0.5)
+
+[node name="flap delay" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="post-flap-hold" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="jumphold" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="jumpholdboostless" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="flap delay" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="jumpholdboostless" to="." method="_on_jumpholdboostless_timeout"]

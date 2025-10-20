@@ -31,6 +31,7 @@ func _process(delta):
 	pass
 
 func intersects(other, offset: Vector2):
+	
 	return ((self.right + offset.x) > other.left && (self.left + offset.x) < other.right 
 	&& (self.bottom + offset.y) > other.top && (self.top + offset.y) < other.bottom)
 	

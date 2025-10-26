@@ -40,3 +40,16 @@ func zero_remainder_x():
 	remainder.x = 0
 func zero_remainder_y():
 	remainder.y = 0
+
+func move_x_camera(amount):
+	remainder.x += amount
+	var move = round(remainder.x)
+	if move != 0:
+		remainder.x -= move
+		move_x_exact_camera(move)
+
+func move_x_exact_camera(amount):
+	var step = sign(amount)
+	while amount != 0:
+		global_position.x += step
+		amount -= step

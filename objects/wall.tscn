@@ -7,3 +7,4 @@
 script = ExtResource("1_7ac66")
 
 [node name="hitbox" parent="." instance=ExtResource("2_8rcxd")]
+x = 0

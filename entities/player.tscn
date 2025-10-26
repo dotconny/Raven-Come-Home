@@ -50,9 +50,13 @@ one_shot = true
 wait_time = 2.0
 
 [node name="pokebuffer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.2
+
+[node name="pokejumpbuffer" type="Timer" parent="."]
+wait_time = 0.2
 
 [connection signal="timeout" from="flap delay" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="jumpholdboostless" to="." method="_on_jumpholdboostless_timeout"]
 [connection signal="timeout" from="poketimer" to="." method="_on_poketimer_timeout"]
 [connection signal="timeout" from="pokebuffer" to="." method="_on_pokebuffer_timeout"]
+[connection signal="timeout" from="pokejumpbuffer" to="." method="_on_pokejumpbuffer_timeout"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwvy1caik0syd"]
+[gd_scene load_steps=5 format=3 uid="uid://dwvy1caik0syd"]
 
 [ext_resource type="PackedScene" uid="uid://46yyaknh310j" path="res://entities/player.tscn" id="1_lwhl7"]
 [ext_resource type="PackedScene" uid="uid://bkyuy71sjog42" path="res://objects/wall.tscn" id="2_3dri8"]
 [ext_resource type="PackedScene" uid="uid://bgxk3vy766kkv" path="res://entities/camera.tscn" id="3_aowqe"]
+[ext_resource type="PackedScene" uid="uid://btpcf2e1cjb78" path="res://objects/moving_platform.tscn" id="4_65x83"]
 
 [node name="Lvl1" type="Node2D"]
 
@@ -751,3 +752,9 @@ position = Vector2(32, 48)
 [node name="camera" parent="." instance=ExtResource("3_aowqe")]
 position = Vector2(160, 90)
 camera_accel = 50
+
+[node name="moving platform" parent="." instance=ExtResource("4_65x83")]
+position = Vector2(208, 40)
+offset = Vector2(0, -48)
+time = 0.5
+delay = 1.0

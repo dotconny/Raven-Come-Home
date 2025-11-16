@@ -48,7 +48,7 @@ func _process(delta):
 		local_poke_counter = poke_counter
 		$pokebuffer.timeout.emit()
 	
-	if grounded && jumping:
+	if grounded && Input.is_action_just_pressed("jump"):
 		jump()
 	elif $jumphold.time_left >0:
 		if jumping:
@@ -83,7 +83,7 @@ func _process(delta):
 			$"post-flap-hold".timeout
 	
 	if Game.check_left_poke_collision(self, Vector2(sign(velocity.x*delta),0)) || Game.check_right_poke_collision(self, Vector2(sign(velocity.x*delta),0)):
-		if Input.is_action_pressed("poke") && !poking && poke_buffer && local_poke_counter > 0:
+		if Input.is_action_just_pressed("poke") && !poking && poke_buffer && local_poke_counter > 0:
 			$poketimer.start()
 			flaps_counted = flap_counter
 			poking = true
@@ -94,7 +94,7 @@ func _process(delta):
 				rpoke = true
 	
 	if poking:
-		if jumping && $poketimer.time_left > 0:
+		if Input.is_action_just_pressed("jump") && $poketimer.time_left > 0:
 			temppoker = lpoke
 			temppokel = rpoke
 			pokejumpbuffer = true
@@ -110,6 +110,11 @@ func _process(delta):
 			lpoke = false
 			$poketimer.timeout.emit()
 			#$"flap delay".timeout.emit()
+		elif Input.is_action_just_pressed("poke") && $poketimer.time_left < 1.8:
+			poking = false
+			rpoke = false
+			lpoke = false
+			$poketimer.timeout.emit()
 		if $poketimer.time_left > 0:
 			velocity.y = 0
 			velocity.x = move_toward(velocity.x, 0, freeze*delta)
@@ -176,3 +181,9 @@ func _on_pokejumpbuffer_timeout() -> void:
 	temppokel = false
 	temppoker = false
 	pokejumpbuffer = false
+
+func is_riding(solid,offset):
+	return !hitbox.intersects(solid.hitbox, Vector2.ZERO) && hitbox.intersects(solid.hitbox, offset)
+
+func squish():
+	print("squished")

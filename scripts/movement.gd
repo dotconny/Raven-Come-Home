@@ -3,6 +3,9 @@ class_name movement
 
 var remainder = Vector2.ZERO
 
+func _ready():
+	add_to_group("Actors")
+
 func move_x(amount, callback):
 	remainder.x += amount
 	var move = round(remainder.x)
